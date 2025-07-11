@@ -1,0 +1,205 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sticky-note {
+  width: 200px;
+  min-height: 150px;
+  padding: 1rem;
+  background-color: #fffb7d; /* yellow sticky note */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  transform: rotate(-2deg); /* slight tilt */
+  position: absolute;
+  cursor: move;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sticky-note.editing {
+  padding-top: 2rem;
+}
+
+.sticky-note.active {
+  box-shadow: 6px 6px 20px rgba(0,0,0,0.3);
+}
+
+.sticky-note > div {
+  font-family: monospace, monospace;
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+
+.note-settings {
+  margin-top: 10px;
+  padding: 8px;
+  background: #f1f1f1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-settings label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.note-settings input[type="color"] {
+  width: 40px;
+  height: 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.note-settings button {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: not-allowed;
+}
+
+.note-controls {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  display: flex;
+  gap: 6px;
+}
+
+.bulletin-board {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #d2b48c;
+  background-image: url('../public/bulletin-bg.avif');
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fffb7d;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: 280;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.trash-zone {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  z-index: 10;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  min-width: 160px;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px 0;
+  font-size: 0.9rem;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.dropdown-menu input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+
+
+/* optional: fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
